@@ -17,22 +17,41 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
+
     private static final String TAG = "EmailPassword";
 
     private FirebaseAuth mAuth;
     //private FirebaseAuth.AuthStateListener mAuthListener;
     private EditText mEmailField;
     private EditText mPasswordField;
-    private Button mLogin;
+    private EditText mPasswordConfirmField;
+    private Button mSignUp;
     public void showHome() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
+    public void showLanding() {
+        Intent intent = new Intent(this, LandingActivity.class);
+        startActivity(intent);
+    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        mAuth.addAuthStateListener(mAuthListener);
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        if (mAuthListener != null) {
+//            mAuth.removeAuthStateListener(mAuthListener);
+//        }
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_sign_up);
 
         Intent intent = getIntent();
 
@@ -40,22 +59,28 @@ public class LoginActivity extends AppCompatActivity {
 
         mEmailField = (EditText) findViewById(R.id.email_field);
         mPasswordField = (EditText) findViewById(R.id.password_field);
+        mPasswordConfirmField = (EditText) findViewById(R.id.password_field_confirm);
 
-        mLogin = (Button) findViewById(R.id.login_act_button);
-        mLogin.setOnClickListener(new View.OnClickListener() {
+        mSignUp = (Button) findViewById(R.id.sign_up_act_button);
+        mSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = mEmailField.getText().toString();
                 String pass = mPasswordField.getText().toString();
+                String passConfirm = mPasswordConfirmField.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
                     mEmailField.setError("Required.");
                 } else if (TextUtils.isEmpty(pass)) {
                     mPasswordField.setError("Required.");
+                } else if(TextUtils.isEmpty(passConfirm)){
+                    mPasswordConfirmField.setError("Required.");
+                } else if(!pass.equals(passConfirm)) {
+                    mPasswordConfirmField.setError("Passwords Must Match");
                 } else {
                     //This is a successful form and now we go to the authentication
-                    mAuth.signInWithEmailAndPassword(email, pass)
-                            .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(email, pass)
+                            .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
@@ -64,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                                         showHome();
                                     } else {
                                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                        Toast.makeText(LoginActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUpActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
@@ -72,5 +97,20 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+//        mAuthListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
+//                if (user != null) {
+//                    // User is signed in
+//                    showHome();
+//                } else {
+//                    // User is signed out
+//                    showLanding();
+//                }
+//                // ...
+//            }
+//        };
     }
-    }
+}

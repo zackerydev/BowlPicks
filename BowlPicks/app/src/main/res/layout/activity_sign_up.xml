@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zgriesinger.bowlpicks.LoginActivity">
+    tools:context="com.zgriesinger.bowlpicks.SignUpActivity">
     <LinearLayout
         android:layout_width="368dp"
         android:layout_height="495dp"
@@ -12,6 +12,10 @@
         tools:layout_editor_absoluteY="8dp"
         tools:layout_editor_absoluteX="8dp"
         android:padding="40sp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_message"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="40sp"
@@ -24,12 +28,17 @@
             android:hint="@string/prompt_password"
             android:id="@+id/password_field"
             android:inputType="textPassword"/>
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:hint="@string/prompt_password_confirm"
+            android:id="@+id/password_field_confirm"
+            android:inputType="textPassword"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="50sp"
-            android:id="@+id/login_act_button"
-            android:text="@string/login"/>
+            android:id="@+id/sign_up_act_button"
+            android:text="@string/sign_up"/>
 
     </LinearLayout>
 
