@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import java.text.DateFormat;
+import java.util.Date;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -27,7 +31,11 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText mPasswordField;
     private EditText mPasswordConfirmField;
     private Button mSignUp;
-    public void showHome() {
+    public void showHome(String uid) {
+        // When a new user signs up we can initialize their db entry here for later
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database.child("Users").child(uid).child("lastLogin").setValue(DateFormat.getDateTimeInstance().format(new Date()));
+
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
@@ -86,7 +94,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "createUserWithEmail: success");
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        showHome();
+                                        showHome(user.getUid());
                                     } else {
                                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                         Toast.makeText(SignUpActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();

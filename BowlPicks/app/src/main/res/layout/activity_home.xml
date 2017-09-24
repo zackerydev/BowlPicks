@@ -5,10 +5,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zgriesinger.bowlpicks.HomeActivity">
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:text="HOME"
-        android:padding="100sp"/>
+        android:orientation="vertical"
+        android:padding="30sp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/g1Name"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/g1home"
+                    android:textSize="25sp"
+                    android:padding="10sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vs"
+                    android:textSize="25sp"
+                    android:textColor="black" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/g1away"
+                    android:textSize="25sp"
+                    android:layoutDirection="rtl"
+                    android:padding="10sp"/>
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/g2Name"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/g2home"
+                    android:textSize="25sp"
+                    android:padding="10sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/vs"
+                    android:textSize="25sp"
+                    android:textColor="black"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/g2away"
+                    android:textSize="25sp"
+                    android:layoutDirection="rtl"
+                    android:padding="10sp"/>
+
+            </RadioGroup>
+
+
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:id="@+id/submit_picks" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -18,4 +18,17 @@
     <string name="sign_up_message">Please Sign In:</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
+
+    <string name="vs">vs</string>
+
+    <string name="g1Name">Bowl One:</string>
+    <string name="g2Name">Bowl Two:</string>
+
+    <string name="g1home">Team 1</string>
+    <string name="g1away">Team 2</string>
+    <string name="g2home">Team 3</string>
+    <string name="g2away">Team 4</string>
+
+
+
 </resources>

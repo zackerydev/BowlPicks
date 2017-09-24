@@ -10,7 +10,6 @@
         android:layout_width="368dp"
         android:layout_height="495dp"
         android:orientation="vertical"
-        android:padding="40sp"
         android:gravity="center">
 
         <Button
