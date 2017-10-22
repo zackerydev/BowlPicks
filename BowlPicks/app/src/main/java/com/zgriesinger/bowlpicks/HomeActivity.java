@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,6 +34,7 @@ import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
+    private EditText mDisplayNameField;
     public void showDashboard() {
         Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
@@ -41,7 +44,10 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("Users").child(user.getUid()).child("picks").setValue(pickList);
-
+        database.child("Users").child(user.getUid()).child("picked").setValue(true);
+        mDisplayNameField = (EditText) findViewById(R.id.display_name);
+        database.child("Users").child(user.getUid()).child("displayName").setValue(mDisplayNameField.getText().toString());
+        database.child("Users").child(user.getUid()).child("type").setValue("Player");
         showDashboard();
     }
 
@@ -121,6 +127,7 @@ public class HomeActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 ArrayList<String> gameArray = new ArrayList();
+                String errors = "";
                 for(int j = 0; j < 3; j++) {
                     RadioGroup rg = (RadioGroup)findViewById(100 + j);
                     RadioButton home = (RadioButton)findViewById(10 + j);
@@ -132,9 +139,22 @@ public class HomeActivity extends AppCompatActivity {
                     } else {
                         home.setTextColor(Color.parseColor("#FF0000"));
                         away.setTextColor(Color.parseColor("#FF0000"));
+                        errors += (" Game " + j);
                     }
                 }
-                submitPicks(gameArray);
+                if(errors == "") {
+                    submitPicks(gameArray);
+                } else {
+                    View layout = findViewById(R.id.home);
+                    String totalErrors = "Please pick a team for:" + errors;
+                    Snackbar.make(layout, totalErrors, Snackbar.LENGTH_LONG).setAction("CLOSE",
+                            new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                }
+                            }).show();
+                }
             }
         });
 
@@ -143,10 +163,12 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final String league;
         setContentView(R.layout.activity_home);
         super.onCreate(savedInstanceState);
+        //getActionBar().setTitle("Pick Your Games:");
+        getSupportActionBar().setTitle("Pick Your Games:");
         final ArrayList<Game> bowlGames = new ArrayList();
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         Query gameRef = database.getReference("Games");
         gameRef.orderByChild("order").addValueEventListener(new ValueEventListener() {

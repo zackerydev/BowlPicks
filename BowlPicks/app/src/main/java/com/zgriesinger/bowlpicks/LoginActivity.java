@@ -16,8 +16,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -30,12 +33,30 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mEmailField;
     private EditText mPasswordField;
     private Button mLogin;
-    public void showHome(String uid) {
+    public void showNext(String uid) {
+        User currentUser;
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("Users").child(uid).child("lastLogin").setValue(DateFormat.getDateTimeInstance().format(new Date()));
 
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
+        database.child("Users").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User currentUser = dataSnapshot.getValue(User.class);
+                if(currentUser.picked) {
+                    Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "createUserWithEmail: success");
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        showHome(user.getUid());
+                                        showNext(user.getUid());
                                     } else {
                                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                         Toast.makeText(LoginActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();

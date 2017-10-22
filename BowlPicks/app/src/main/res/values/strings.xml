@@ -30,6 +30,10 @@
     <string name="g2away">Team 4</string>
 
     <string name="submit">Submit</string>
-
+    <string name="prompt_display_name">Your Display Name</string>
+    <string name="display_name_header">Enter a name to be used to identify you:</string>
+    <string name="pick_header">Pick Your Games!</string>
+    <string name="name_header">Name:</string>
+    <string name="game_header">Game:</string>
 
 </resources>

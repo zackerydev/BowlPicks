@@ -12,12 +12,12 @@
         android:paddingTop="50sp"
         android:paddingLeft="20sp"
         android:paddingRight="20sp">
-        <EditText
+       <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/prompt_email"
             android:id="@+id/email_field"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"  />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
