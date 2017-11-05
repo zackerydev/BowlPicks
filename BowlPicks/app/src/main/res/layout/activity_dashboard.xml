@@ -11,62 +11,85 @@
         android:layout_height="56dp"
         android:background="#616161"
         android:elevation="4dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp" />
+         />
+
+
+
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:orientation="vertical"
         android:padding="?attr/actionBarSize"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:id="@+id/header"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp">
+            android:gravity="center"
+
+            >
 
         </LinearLayout>
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/pick_table"
-            android:stretchColumns="*"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="8dp">
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp">
-                <TextView
-                    android:text="@string/name_header"
-                    android:textStyle="bold"
-                    android:textSize="20dp"
-                    />
-                <TextView
-                    android:text="@string/game_header"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
 
-                    />
-                <TextView
-                    android:text="@string/game_header"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:scrollbarStyle="insideOverlay"
+            android:scrollbars="none">
 
-                    />
-                <TextView
-                    android:text="@string/game_header"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
+            <TableLayout
+                android:id="@+id/pick_table"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:isScrollContainer="true"
+                android:padding="10dip"
+                android:stretchColumns="*">
 
-                    />
-            </TableRow>
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-        </TableLayout>
+                    <TextView
+                        android:padding="10dp"
+                        android:text="@string/name_header"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:padding="10dp"
+                        android:text="@string/score_header"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:padding="10dp"
+                        android:text="@string/game_header"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:padding="10dp"
+                        android:text="@string/game_header"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:padding="10dp"
+                        android:text="@string/game_header"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+            </TableLayout>
+        </HorizontalScrollView>
+
     </LinearLayout>
 
 
