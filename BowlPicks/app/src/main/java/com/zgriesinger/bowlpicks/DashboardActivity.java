@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
+
 final class League {
     public String name;
 
@@ -43,24 +45,41 @@ final class League {
 public class DashboardActivity extends AppCompatActivity {
     public String league;
 
-    public void validateJoin(String leagueName) {
+    public void validateCreate(String leagueName) {
         final String lname = leagueName;
         final String err = "";
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        final DatabaseReference ref = db.getReference("Leagues");
-        final Query allLeagues = db.getReference("Leagues");
-        allLeagues.orderByChild("name").addValueEventListener(new ValueEventListener() {
+        final FirebaseDatabase db = FirebaseDatabase.getInstance();
+        final FirebaseUser loggedUser = FirebaseAuth.getInstance().getCurrentUser();
+        Query allPicks = db.getReference("Users");
+        allPicks.orderByChild("league").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snap : dataSnapshot.getChildren()) {
-                    League l = snap.getValue(League.class);
-                    if(lname == l.name) {
-                        err.concat("This league name is already taken!");
+                    User user = snap.getValue(User.class);
+                    if(user.league == lname) {
+                        err.concat("League already exists!");
+                        break;
                     }
                 }
                 if(err == "") {
-                    League newLeague = new League(lname);
-                    ref.child("Leagues").push().setValue(newLeague);
+                    DatabaseReference users = db.getReference("Users").child(loggedUser.getUid());
+                    users.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            User user = dataSnapshot.getValue(User.class);
+                            user.league = lname;
+                            DatabaseReference dr = db.getReference();
+                            dr.child("Users").child(loggedUser.getUid()).setValue(user);
+                            finish();
+                            startActivity(getIntent());
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
                 } else {
                     Toast.makeText(getApplicationContext(), err, Toast.LENGTH_LONG).show();
 
@@ -72,30 +91,59 @@ public class DashboardActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
-    public void validateCreate(String leagueName) {
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        DatabaseReference allLeagues = db.getReference("Leagues");
-    }
     public void displayRow(User user){
-        TableLayout pickTable = (TableLayout)findViewById(R.id.pick_table);
-        TableRow row = new TableRow(this);
-        TextView name = new TextView(this);
-        name.setText(user.displayName);
-        TableRow.LayoutParams textParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
-                TableRow.LayoutParams.WRAP_CONTENT);
-        textParams.setMargins(20, 1, 1 ,1);
-        row.setLayoutParams(textParams);
-        name.setTextSize(20);
-        row.addView(name);
-        for(int i = 0; i < user.picks.size(); i++) {
-            TextView pick = new TextView(this);
-            pick.setText(user.picks.get(i));
-            pick.setTextSize(20);
-            row.addView(pick);
-        }
-        pickTable.addView(row);
+        final ArrayList<String> picks = user.picks;
+        final String displayName = user.displayName;
+
+        DatabaseReference mDatabase;
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("Winners").addValueEventListener(new ValueEventListener() {
+            int score;
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String winners = dataSnapshot.getValue().toString();
+                String [] splitWinners = winners.split("\\|");
+                for(int i = 0; i < splitWinners.length; i++) {
+                    String [] teamPoints = splitWinners[i].split("\\,");
+                    if(teamPoints[0].equals(picks.get(i))) {
+                        score += parseInt(teamPoints[1]);
+                    }
+                }
+                TableLayout pickTable = (TableLayout)findViewById(R.id.pick_table);
+                TableRow row = new TableRow(DashboardActivity.this);
+                TextView name = new TextView(DashboardActivity.this);
+                name.setText(displayName);
+                TableRow.LayoutParams textParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT,
+                        TableRow.LayoutParams.WRAP_CONTENT);
+                textParams.setMargins(20, 1, 1 ,1);
+                row.setLayoutParams(textParams);
+                name.setTextSize(20);
+                row.addView(name);
+                TextView scoreTV = new TextView(DashboardActivity.this);
+                scoreTV.setLayoutParams(textParams);
+                scoreTV.setText(Integer.toString(score));
+                row.addView(scoreTV);
+                for(int j = 0; j < picks.size(); j++) {
+                    TextView pick = new TextView(DashboardActivity.this);
+                    pick.setText(picks.get(j));
+                    pick.setTextSize(20);
+                    row.addView(pick);
+                }
+                pickTable.addView(row);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +152,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         Toolbar dashToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(dashToolbar);
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         Query allPicks = database.getReference("Users");
@@ -124,38 +173,9 @@ public class DashboardActivity extends AppCompatActivity {
                         //headerLayout.addView(leagueName);
                     } else {
                         Toolbar dashToolbar = (Toolbar) findViewById(R.id.toolbar);
-                        Button joinLeague = new Button(DashboardActivity.this);
-                        joinLeague.setText("Join League");
+
                         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.FILL_PARENT);
                         params.gravity = Gravity.RIGHT;
-                        joinLeague.setLayoutParams(params);
-                        joinLeague.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v){
-
-                                final EditText joinLeague = new EditText(DashboardActivity.this);
-
-                                LinearLayout header = (LinearLayout) findViewById(R.id.header);
-                                header.removeAllViews();
-                                joinLeague.setHint("Type League Name here:");
-                                Button submitJoin = new Button(DashboardActivity.this);
-                                submitJoin.setText("Join");
-                                submitJoin.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        String leagueName = joinLeague.getText().toString();
-                                        validateJoin(leagueName);
-                                    }
-                                });
-                                joinLeague.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.MATCH_PARENT));
-                                submitJoin.setLayoutParams(new ViewGroup.LayoutParams(
-                                        ViewGroup.LayoutParams.MATCH_PARENT,
-                                        ViewGroup.LayoutParams.WRAP_CONTENT
-                                ));
-                                header.addView(joinLeague);
-                                header.addView(submitJoin);
-
-                            }
-                        });
 
                         Button createLeague = new Button(DashboardActivity.this);
                         createLeague.setText("Create League");
@@ -167,7 +187,7 @@ public class DashboardActivity extends AppCompatActivity {
 
                                 LinearLayout header = (LinearLayout) findViewById(R.id.header);
                                 header.removeAllViews();
-                                createLeague.setHint("Type League Name here to create:");
+                                createLeague.setHint("Type Here to Create or Join a League!:");
                                 Button submitCreate = new Button(DashboardActivity.this);
                                 submitCreate.setText("Join");
                                 submitCreate.setOnClickListener(new View.OnClickListener() {
@@ -189,7 +209,6 @@ public class DashboardActivity extends AppCompatActivity {
                         });
 
 
-                        dashToolbar.addView(joinLeague);
                         dashToolbar.addView(createLeague);
                         league = "";
                         TextView noPlayerError = new TextView(DashboardActivity.this);
