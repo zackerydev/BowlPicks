@@ -1,4 +1,11 @@
 {
-  "name": "BowlPicks",
-  "displayName": "BowlPicks"
+  "expo": {
+    "name": "Bowl Picks",
+    "version": "1.0.0",
+    "icon": "./icons.png",
+    "android": {
+      "package": "com.griesinger.bowlpicks"
+    },
+    "sdkVersion": "23.0.0"
+  }
 }

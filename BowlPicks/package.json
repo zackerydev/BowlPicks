@@ -3,28 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "babel-preset-react-native-stage-0": "^1.0.1",
-    "fs-extra": "^4.0.2",
-    "jest-expo": "^21.0.2",
-    "react-test-renderer": "16.0.0-beta.5",
-    "replace-in-file": "^3.0.0"
+    "jest-expo": "23.0.0",
+    "react-native-scripts": "1.8.1",
+    "react-test-renderer": "16.0.0"
   },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "rename": "node ./bin/rename.js",
-    "start": "react-native start",
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
-    "fbjs": "^0.8.16",
-    "native-base": "^2.3.3",
-    "react": "^16.0.0",
-    "react-native": "^0.50.3",
-    "react-native-firebase": "^3.1.0",
+    "@expo/vector-icons": "^6.2.1",
+    "babel-core": "^6.26.0",
+    "expo": "^23.0.4",
+    "firebase": "^4.8.0",
+    "native-base": "^2.3.5",
+    "react": "16.0.0",
+    "react-native": "0.50.3",
+    "react-native-elements": "^0.18.5",
     "react-native-vector-icons": "^4.4.2"
   }
 }
