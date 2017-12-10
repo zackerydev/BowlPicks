@@ -17,6 +17,8 @@ Below you'll find information about performing common tasks. The most recent ver
   *Note* The app should work properly off of my Firebase account, the data in then
   Firebase database is in the `database.json` file in the repo.
 
+  *Note* If you want to run it in Android Studio run `yarn eject` and then open the `./android/` directory in Android Studio
+
 ## Using the app
   Once you load up the app you will be prompted to sign in, once you sign in with a good enough password you will be redirected to
   pick the winners of the games, once you do that you will be then again redirected further to the leaderboard and it will validate
