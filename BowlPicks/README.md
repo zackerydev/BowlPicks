@@ -1,87 +1,101 @@
-# React Native Firebase Starter<a href="https://rnfirebase.io"><img align="left" src="http://i.imgur.com/01XQL0x.png"></a>
+This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
-[![Backers on Open Collective](https://opencollective.com/react-native-firebase/backers/badge.svg)](#backers)
-[![Sponsors on Open Collective](https://opencollective.com/react-native-firebase/sponsors/badge.svg)](#sponsors)
-[![npm version](https://img.shields.io/npm/v/react-native-firebase.svg?style=flat-square)](https://www.npmjs.com/package/react-native-firebase)
-[![NPM downloads](https://img.shields.io/npm/dm/react-native-firebase.svg?style=flat-square)](https://www.npmjs.com/package/react-native-firebase)
-[![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg?style=flat-square)](https://discord.gg/t6bdqMs)
-[![Twitter Follow](https://img.shields.io/twitter/follow/rnfirebase.svg?style=social&label=Follow)](https://twitter.com/rnfirebase)
+Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
 
----
+# README
+## Overview
+  Bowl Picks was created with Create React Native App. To get the app up and running locally you can either take the .APK file that exists in then
+  base project directory, or you can download Node.js and Yarn and build it yourself. If you choose to build it yourself you can follow these steps or
+  find more info below.
+  1. Install [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/)
+  2. Clone the REPO and navigate to the BowlPicks folder
+  3. Run `yarn install` and wait for that to finished
+  4. Run `yarn start` and the packager will start up
+  5. Download the Expo app on your android phone [here](https://expo.io)
+  6. Open it on the Expo app and scan the QR code the packager outputs
 
-A basic react native app with [`react-native-firebase`](https://github.com/invertase/react-native-firebase) pre-integrated  to get you started quickly.
+  *Note* The app should work properly off of my Firebase account, the data in then
+  Firebase database is in the `database.json` file in the repo.
 
----
+## Using the app
+  Once you load up the app you will be prompted to sign in, once you sign in with a good enough password you will be redirected to
+  pick the winners of the games, once you do that you will be then again redirected further to the leaderboard and it will validate
+  your picks against the "winners"
 
-
-### Getting Started
-
-If you're only developing for one platform you can ignore the steps below that are tagged with the platform you don't require.
-
-#### 1) Clone & Install Dependencies
-
-- 1.1) `git clone https://github.com/invertase/react-native-firebase-starter.git`
-- 1.2) `cd react-native-firebase-starter` - cd into your newly created project directory.
-- 1.3) Install NPM packages with your package manager of choice - i.e run `yarn` or `npm install`
-- 1.4) **[iOS]** `cd ios` and run `pod install` - if you don't have CocoaPods you can follow [these instructions](https://guides.cocoapods.org/using/getting-started.html#getting-started) to install it.
-- 1.5) **[Android]** No additional steps for android here.
-
-#### 2) Rename Project
-
-- 2.0) **[iOS]** `cd ..` to return to the root directory of the project
-- 2.1) `npm run rename` - you'll be prompted to enter a project name and company name
-- 2.2) Note down the package name value - you'll need this when setting up your Firebase project
-
-#### 3) Add `Google Services` files (plist & JSON)
-
-- 3.1) **[iOS]** Follow the `add firebase to your app` instructions [here](https://firebase.google.com/docs/ios/setup#add_firebase_to_your_app) to generate your `GoogleService-Info.plist` file if you haven't done so already - use the package name generated previously as your `iOS bundle ID`.
-- 3.2) **[iOS]** Place this file in the `ios/` directory of your project.
-- 3.3) **[Android]** Follow the `manually add firebase` to your app instructions [here](https://firebase.google.com/docs/android/setup#manually_add_firebase) to generate your `google-services.json` file if you haven't done so already - use the package name generated previously as your `Android package name`.
-- 3.4) Place this file in the `android/app/` directory of your project.
-  
-#### 4) Start your app
-
-- 4.1) Start the react native packager, run `yarn run start` or `npm run start` from the root of your project.
-- 4.2) **[iOS]** Build and run the iOS app, run `react-native run-ios` from the root of your project. The first build will take some time. This will automatically start up a simulator also for you on a successful build if one wasn't already started.
-- 4.3) **[Android]** If you haven't already got an android device attached/emulator running then you'll need to get one running (make sure the emulator is with Google Play / APIs). When ready run `react-native run-android` from the root of your project.
-
-If all has gone well you'll see an initial screen like the one below.
-  
-## Screenshots
-
-![preview](https://i.imgur.com/4lG4HuS.png)
+  *Note* The "winners" are all favorites at this time because the games haven't been played yet.
 
 
-## Contributors
+# Everything below this line is defaulted from Create React Native App, use this if you can't get the app to run locally
 
-This project exists thanks to all the people who contribute. [[Contribute]](CONTRIBUTING.md).
-<a href="graphs/contributors"><img src="https://opencollective.com/react-native-firebase/contributors.svg?width=890" /></a>
+## Available Scripts
+
+If Yarn was installed when the project was initialized, then dependencies will have been installed via Yarn, and you should probably use it to run these commands as well. Unlike dependency installation, command running syntax is identical for Yarn and NPM at the time of this writing.
+
+### `npm start`
+
+Runs your app in development mode.
+
+Open it in the [Expo app](https://expo.io) on your phone to view it. It will reload if you save edits to your files, and you will see build errors and logs in the terminal.
+
+Sometimes you may need to reset or clear the React Native packager's cache. To do so, you can pass the `--reset-cache` flag to the start script:
+
+```
+npm start -- --reset-cache
+# or
+yarn start -- --reset-cache
+```
+
+#### `npm test`
+
+Runs the [jest](https://github.com/facebook/jest) test runner on your tests.
+
+#### `npm run ios`
+
+Like `npm start`, but also attempts to open your app in the iOS Simulator if you're on a Mac and have it installed.
+
+#### `npm run android`
+
+Like `npm start`, but also attempts to open your app on a connected Android device or emulator. Requires an installation of Android build tools (see [React Native docs](https://facebook.github.io/react-native/docs/getting-started.html) for detailed setup). We also recommend installing Genymotion as your Android emulator. Once you've finished setting up the native build environment, there are two options for making the right copy of `adb` available to Create React Native App:
+
+##### Using Android Studio's `adb`
+
+1. Make sure that you can run adb from your terminal.
+2. Open Genymotion and navigate to `Settings -> ADB`. Select “Use custom Android SDK tools” and update with your [Android SDK directory](https://stackoverflow.com/questions/25176594/android-sdk-location).
+
+##### Using Genymotion's `adb`
+
+1. Find Genymotion’s copy of adb. On macOS for example, this is normally `/Applications/Genymotion.app/Contents/MacOS/tools/`.
+2. Add the Genymotion tools directory to your path (instructions for [Mac](http://osxdaily.com/2014/08/14/add-new-path-to-path-command-line/), [Linux](http://www.computerhope.com/issues/ch001647.htm), and [Windows](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)).
+3. Make sure that you can run adb from your terminal.
+
+#### `npm run eject`
+
+This will start the process of "ejecting" from Create React Native App's build scripts. You'll be asked a couple of questions about how you'd like to build your project.
+
+**Warning:** Running eject is a permanent action (aside from whatever version control system you use). An ejected app will require you to have an [Xcode and/or Android Studio environment](https://facebook.github.io/react-native/docs/getting-started.html) set up.
 
 
-## Backers
+## Sharing and Deployment
 
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/react-native-firebase#backer)]
+Create React Native App does a lot of work to make app setup and development simple and straightforward, but it's very difficult to do the same for deploying to Apple's App Store or Google's Play Store without relying on a hosted service.
 
-<a href="https://opencollective.com/react-native-firebase#backers" target="_blank"><img src="https://opencollective.com/react-native-firebase/backers.svg?width=890"></a>
+### Publishing to Expo's React Native Community
 
+Expo provides free hosting for the JS-only apps created by CRNA, allowing you to share your app through the Expo client app. This requires registration for an Expo account.
 
-## Sponsors
+Install the `exp` command-line tool, and run the publish command:
 
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/react-native-firebase#sponsor)]
+```
+$ npm i -g exp
+$ exp publish
+```
 
-<a href="https://opencollective.com/react-native-firebase/sponsor/0/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/1/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/2/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/3/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/4/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/5/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/6/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/7/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/8/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/react-native-firebase/sponsor/9/website" target="_blank"><img src="https://opencollective.com/react-native-firebase/sponsor/9/avatar.svg"></a>
+### Building an Expo "standalone" app
 
+You can also use a service like [Expo's standalone builds](https://docs.expo.io/versions/latest/guides/building-standalone-apps.html) if you want to get an IPA/APK for distribution without having to build the native code yourself.
 
+### Ejecting from Create React Native App
 
-### License
+If you want to build and deploy your app yourself, you'll need to eject from CRNA and use Xcode and Android Studio.
 
-- See [LICENSE](/LICENSE)
+This is usually as simple as running `npm run eject` in your project, which will walk you through the process. Make sure to install `react-native-cli` and follow the [native code getting started guide for React Native](https://facebook.github.io/react-native/docs/getting-started.html).

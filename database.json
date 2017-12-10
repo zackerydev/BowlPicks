@@ -1,0 +1,265 @@
+{
+  "games" : [ {
+    "favPoints" : "7",
+    "favorite" : "Troy",
+    "name" : "New Orleans Bowl",
+    "undPoints" : "13",
+    "underdog" : "North Texas"
+  }, {
+    "favPoints" : "8",
+    "favorite" : "Western Kentucky",
+    "name" : "Cure Bowl",
+    "undPoints" : "12",
+    "underdog" : "Georgia State"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "Oregon",
+    "name" : "Las Vegas Bowl",
+    "undPoints" : "13",
+    "underdog" : "Boise State"
+  }, {
+    "favPoints" : "8",
+    "favorite" : "Colorado State",
+    "name" : "New Mexico Bowl",
+    "undPoints" : "12",
+    "underdog" : "Marshall"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Arkansas State",
+    "name" : "Camellia Bowl",
+    "undPoints" : "11",
+    "underdog" : "Middle Tenn. State"
+  }, {
+    "favPoints" : "5",
+    "favorite" : "Florida Atlantic",
+    "name" : "Boca Raton Bowl",
+    "undPoints" : "15",
+    "underdog" : "Akron"
+  }, {
+    "favPoints" : "8",
+    "favorite" : "SMU",
+    "name" : "Frisco Bowl",
+    "undPoints" : "12",
+    "underdog" : "Louisiana Tech"
+  }, {
+    "favPoints" : "6",
+    "favorite" : "Temple",
+    "name" : "Gasparilla Bowl",
+    "undPoints" : "14",
+    "underdog" : "Florida International"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "Ohio",
+    "name" : "Bahamas Bowl",
+    "undPoints" : "13",
+    "underdog" : "UAB"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Central Michigan",
+    "name" : "Idaho Potato Bowl",
+    "undPoints" : "10",
+    "underdog" : "Wyoming"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "South Florida",
+    "name" : "Birmingham Bowl",
+    "undPoints" : "11",
+    "underdog" : "Texas Tech"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Army",
+    "name" : "Armed Forces Bowl",
+    "undPoints" : "10",
+    "underdog" : "San Diego State"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "Toledo",
+    "name" : "Dollar General Bowl",
+    "undPoints" : "13",
+    "underdog" : "Appalachian State"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Houston",
+    "name" : "Hawaii Bowl",
+    "undPoints" : "10",
+    "underdog" : "Fresno State"
+  }, {
+    "favPoints" : "8",
+    "favorite" : "Utah",
+    "name" : "Heart of Dallas Bowl",
+    "undPoints" : "12",
+    "underdog" : "West Virgina"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Duke",
+    "name" : "Quick Lane Bowl",
+    "undPoints" : "11",
+    "underdog" : "Northern Illinois"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Kansas State",
+    "name" : "Cactus Bowl",
+    "undPoints" : "11",
+    "underdog" : "UCLA"
+  }, {
+    "favPoints" : "5",
+    "favorite" : "Florida State",
+    "name" : "Independence Bowl",
+    "undPoints" : "15",
+    "underdog" : "Southern Miss"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Iowa",
+    "name" : "Pinstripe Bowl",
+    "undPoints" : "11",
+    "underdog" : "Boston College"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Arizona",
+    "name" : "Foster Farms Bowl",
+    "undPoints" : "11",
+    "underdog" : "Purdue"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Mizzou",
+    "name" : "Texas Bowl",
+    "undPoints" : "10",
+    "underdog" : "Texas"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Navy",
+    "name" : "Military Bowl",
+    "undPoints" : "10",
+    "underdog" : "Virginia"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "Oklahoma State",
+    "name" : "Camping World Bowl",
+    "undPoints" : "13",
+    "underdog" : "Virginia Tech"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "TCU",
+    "name" : "Alamo Bowl",
+    "undPoints" : "11",
+    "underdog" : "Stanford"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Washington State",
+    "name" : "Holiday Bowl",
+    "undPoints" : "11",
+    "underdog" : "Michigan State"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Wake Forest ",
+    "name" : "Belk Bowl",
+    "undPoints" : "11",
+    "underdog" : "Texas A&M"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "North Carolina State",
+    "name" : "Sun Bowl",
+    "undPoints" : "13",
+    "underdog" : "Arizona State"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "Northwestern",
+    "name" : "Music City Bowl",
+    "undPoints" : "13",
+    "underdog" : "Kentucky"
+  }, {
+    "favPoints" : "8",
+    "favorite" : "Utah State",
+    "name" : "Arizona Bowl",
+    "undPoints" : "12",
+    "underdog" : "New Mexico State"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "Ohio State",
+    "name" : "Cotton Bowl",
+    "undPoints" : "13",
+    "underdog" : "USC"
+  }, {
+    "favPoints" : "8",
+    "favorite" : "Louisville",
+    "name" : "TaxSlayer Bowl",
+    "undPoints" : "12",
+    "underdog" : "Mississippi State"
+  }, {
+    "favPoints" : "9",
+    "favorite" : "Memphis",
+    "name" : "Liberty Bowl",
+    "undPoints" : "11",
+    "underdog" : "Iowa State"
+  }, {
+    "favPoints" : "8",
+    "favorite" : "Penn State",
+    "name" : "Fiesta Bowl",
+    "undPoints" : "12",
+    "underdog" : "Washington"
+  }, {
+    "favPoints" : "7",
+    "favorite" : "Wisconsin",
+    "name" : "Orange Bowl",
+    "undPoints" : "13",
+    "underdog" : "Miami"
+  }, {
+    "favPoints" : "6",
+    "favorite" : "Michigan ",
+    "name" : "Outback Bowl",
+    "undPoints" : "14",
+    "underdog" : "South Carolina"
+  }, {
+    "favPoints" : "6",
+    "favorite" : "Auburn",
+    "name" : "Peach Bowl",
+    "undPoints" : "14",
+    "underdog" : "Central Florida"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "LSU",
+    "name" : "Citrus Bowl",
+    "undPoints" : "10",
+    "underdog" : "Notre Dame"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Georgia",
+    "name" : "Rose Bowl (play off)",
+    "undPoints" : "10",
+    "underdog" : "Oklahoma"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Alabama",
+    "name" : "Sugar Bowl (play off)",
+    "undPoints" : "10",
+    "underdog" : "Clemson"
+  }, {
+    "favPoints" : "10",
+    "favorite" : "Sugar winner",
+    "name" : "National Championship",
+    "undPoints" : "10",
+    "underdog" : "Rose winner"
+  } ],
+  "picks" : [ {
+    "name" : "Zack",
+    "picks" : [ "Troy", "Western Kentucky", "Oregon", "Colorado State", "Arkansas State", "Florida Atlantic", "SMU", "Temple", "Ohio", "Central Michigan", "South Florida", "Army", "Toledo", "Houston", "Utah", "Duke", "Kansas State", "Florida State", "Iowa", "Arizona", "Mizzou", "Navy", "Oklahoma State", "TCU", "Washington State", "Wake Forest ", "North Carolina State", "Northwestern", "Utah State", "Ohio State", "Louisville", "Memphis", "Penn State", "Wisconsin", "Michigan ", "Auburn", "LSU", "Georgia", "Alabama", "Sugar winner" ],
+    "points" : 0
+  }, {
+    "name" : "Madelyn",
+    "picks" : [ "Troy", "Western Kentucky", "Oregon", "Colorado State", "Arkansas State", "Florida Atlantic", "SMU", "Temple", "Ohio", "Central Michigan", "South Florida", "Army", "Toledo", "Houston", "Utah", "Duke", "Kansas State", "Florida State", "Iowa", "Arizona", "Mizzou", "Navy", "Oklahoma State", "TCU", "Washington State", "Wake Forest ", "North Carolina State", "Northwestern", "Utah State", "Ohio State", "Louisville", "Memphis", "Penn State", "Wisconsin", "Michigan ", "Auburn", "LSU", "Georgia", "Alabama", "Sugar winner" ],
+    "points" : 0
+  }, {
+    "name" : "SaVanna",
+    "picks" : [ "Troy", "Western Kentucky", "Oregon", "Colorado State", "Arkansas State", "Florida Atlantic", "SMU", "Temple", "Ohio", "Central Michigan", "South Florida", "Army", "Toledo", "Houston", "Utah", "Duke", "Kansas State", "Florida State", "Iowa", "Arizona", "Mizzou", "Navy", "Oklahoma State", "TCU", "Washington State", "Wake Forest ", "North Carolina State", "Northwestern", "Utah State", "Ohio State", "Louisville", "Memphis", "Penn State", "Wisconsin", "Michigan ", "Auburn", "LSU", "Georgia", "Alabama", "Sugar winner" ],
+    "points" : 0
+  }, {
+    "name" : "John",
+    "picks" : [ "Troy", "Georgia State", "Oregon", "Marshall", "Arkansas State", "Akron", "SMU", "Florida International", "Ohio", "Wyoming", "South Florida", "San Diego State", "Toledo", "Fresno State", "Utah", "Northern Illinois", "Kansas State", "Southern Miss", "Iowa", "Purdue", "Mizzou", "Virginia", "Oklahoma State", "Stanford", "Washington State", "Texas A&M", "North Carolina State", "Kentucky", "Utah State", "USC", "Louisville", "Iowa State", "Penn State", "Miami", "Michigan ", "Central Florida", "LSU", "Oklahoma", "Alabama", "Rose winner" ],
+    "points" : 0
+  }, {
+    "name" : "Abby",
+    "picks" : [ "Troy", "Western Kentucky", "Oregon", "Colorado State", "Arkansas State", "Florida Atlantic", "SMU", "Temple", "Ohio", "Central Michigan", "South Florida", "Army", "Toledo", "Houston", "Utah", "Duke", "Kansas State", "Florida State", "Iowa", "Arizona", "Mizzou", "Navy", "Oklahoma State", "TCU", "Washington State", "Wake Forest ", "North Carolina State", "Northwestern", "Utah State", "Ohio State", "Louisville", "Memphis", "Penn State", "Miami", "South Carolina", "Central Florida", "Notre Dame", "Oklahoma", "Alabama", "Sugar winner" ],
+    "points" : 0
+  } ],
+  "winners" : [ "Troy", "Western Kentucky", "Oregon", "Colorado State", "Arkansas State", "Florida Atlantic", "SMU", "Temple", "Ohio", "Central Michigan", "South Florida", "Army", "Toledo", "Houston", "Utah", "Duke", "Kansas State", "Florida State", "Iowa", "Arizona", "Mizzou", "Navy", "Oklahoma State", "TCU", "Washington State", "Wake Forest ", "North Carolina State", "Northwestern", "Utah State", "Ohio State", "Louisville", "Memphis", "Penn State", "Wisconsin", "Michigan ", "Auburn", "LSU", "Georgia", "Alabama", "Sugar winner" ]
+}
